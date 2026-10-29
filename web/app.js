@@ -72,6 +72,28 @@ async function loadTools() {
   }
 }
 
+async function runDemo(kind) {
+  const sequences = {
+    tasks: [
+      "添加待办：完成 MCP 智能体实验报告",
+      "完成它",
+      "查看全部待办",
+    ],
+    files: [
+      "计算 (128 + 72) / 4",
+      "把“会议纪要：完成需求评审”写入 meeting.txt",
+      "再读取刚才的文件",
+    ],
+    weather: ["北京天气怎么样"],
+  };
+  state.sessionId = `demo-${kind}-${Date.now()}`;
+  localStorage.setItem("officepilot-session", state.sessionId);
+  for (const step of sequences[kind] || []) {
+    await sendMessage(step);
+    await new Promise(resolve => setTimeout(resolve, 350));
+  }
+}
+
 form.addEventListener("submit", event => {
   event.preventDefault();
   sendMessage(input.value);
@@ -96,3 +118,7 @@ document.querySelector("#new-chat").addEventListener("click", () => {
   addMessage("assistant", "已开启新会话。之前的记忆仍保存在不同会话中，不会混入当前对话。");
 });
 loadTools();
+
+
+const demoKind = new URLSearchParams(location.search).get("demo");
+if (demoKind) runDemo(demoKind);
