@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>OfficePilot MCP 办公智能体</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <main class="shell">
+    <aside class="sidebar">
+      <div class="brand">
+        <div class="logo">OP</div>
+        <div><h1>OfficePilot</h1><p>MCP 办公智能体</p></div>
+      </div>
+      <div class="status"><span></span> MCP 工具已连接</div>
+      <h2>可以试试</h2>
+      <button class="suggestion">添加待办：明天下午提交软件工程作业</button>
+      <button class="suggestion">计算 (128 + 72) / 4</button>
+      <button class="suggestion">把“会议纪要：完成需求评审”写入 meeting.txt</button>
+      <button class="suggestion">读取 meeting.txt</button>
+      <button class="suggestion">北京天气怎么样</button>
+      <h2>已加载工具</h2>
+      <ul id="tool-list"><li>正在连接…</li></ul>
+      <div class="tip">支持多轮记忆：添加待办后可以说“完成它”。</div>
+    </aside>
+
+    <section class="chat-panel">
+      <header>
+        <div><h2>智能办公助手</h2><p>自然语言对话 · 工具执行 · SQLite 记忆</p></div>
+        <button id="new-chat" class="ghost">新会话</button>
+      </header>
+      <div id="messages" class="messages">
+        <article class="message assistant">
+          <div class="avatar">OP</div>
+          <div class="bubble">你好，我是 OfficePilot。你可以让我管理待办、写文件、做计算或查询天气。</div>
+        </article>
+      </div>
+      <form id="chat-form" class="composer">
+        <textarea id="input" rows="1" placeholder="输入任务，例如：添加待办：周五交实验报告"></textarea>
+        <button type="submit" id="send">发送</button>
+      </form>
+      <div class="hint">Enter 发送 · Shift+Enter 换行</div>
+    </section>
+  </main>
+  <script src="/app.js"></script>
+</body>
+</html>
