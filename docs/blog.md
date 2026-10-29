@@ -1,8 +1,8 @@
 # 第二次团队作业：OfficePilot MCP 办公智能体
 
-| 这个作业属于哪个课程 | [班级圈子链接](待填写) |
+| 这个作业属于哪个课程 | [Class78-Grade2024-CS](https://edu.cnblogs.com/campus/gdgy/Class78-Grade2024-CS/) |
 | --- | --- |
-| 这个作业要求在哪里 | [作业要求链接](待填写) |
+| 这个作业要求在哪里 | [作业要求](https://edu.cnblogs.com/campus/gdgy/Class78-Grade2024-CS/homework/16761) |
 | 这个作业的目标 | 使用 MCP 风格工具构建一个能理解自然语言、能规划任务并调用工具完成办公操作的智能体 |
 | 学号 | 3124004450 |
 
@@ -242,5 +242,6 @@ OK
 我在实现 MCP Client 与 Server 的 stdio 通信时也遇到了 Windows 编码问题。子进程默认使用 GBK，导致 JSON 响应解码失败；最终通过强制设置 `PYTHONUTF8=1` 和 `PYTHONIOENCODING=utf-8` 解决。这个过程让我体会到，智能体的可靠性不仅来自模型，还来自进程通信、错误处理、状态持久化和边界校验。
 
 后续可以继续加入语音输入、本地模型、日历接口和更细的任务依赖关系，让 OfficePilot 从演示型智能体逐步变成可以长期使用的办公助手。
+
 
 
