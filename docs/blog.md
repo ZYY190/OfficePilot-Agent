@@ -154,9 +154,29 @@ def _safe_path(raw_path: str) -> Path:
 python -m agent.cli "添加待办：明天提交实验报告"
 ```
 
-### 4.2 网页界面
+### 4.2 网页界面与实际使用截图
 
-![OfficePilot Web 界面](images/ui-demo.png)
+OfficePilot 的主界面包含聊天区、工具调用轨迹和示例任务入口。下面是初始界面：
+
+![OfficePilot Web 初始界面](images/ui-demo.png)
+
+#### 待办与多轮记忆
+
+先添加待办，再输入“完成它”。智能体从 SQLite 会话状态中读取最近任务编号，无需用户重复说明：
+
+![待办与多轮记忆实际截图](images/ui-use-tasks.png)
+
+#### 计算与文件读写
+
+用户先计算表达式，再写入会议纪要文件，最后通过“刚才的文件”引用上一轮路径：
+
+![计算与文件操作实际截图](images/ui-use-files.png)
+
+#### 外部天气 API
+
+输入“北京天气怎么样”后，智能体调用 `weather_query` 工具访问 wttr.in，并将天气结果转换为自然语言：
+
+![天气查询实际截图](images/ui-use-weather.png)
 
 ### 4.3 功能演示
 
@@ -222,4 +242,5 @@ OK
 我在实现 MCP Client 与 Server 的 stdio 通信时也遇到了 Windows 编码问题。子进程默认使用 GBK，导致 JSON 响应解码失败；最终通过强制设置 `PYTHONUTF8=1` 和 `PYTHONIOENCODING=utf-8` 解决。这个过程让我体会到，智能体的可靠性不仅来自模型，还来自进程通信、错误处理、状态持久化和边界校验。
 
 后续可以继续加入语音输入、本地模型、日历接口和更细的任务依赖关系，让 OfficePilot 从演示型智能体逐步变成可以长期使用的办公助手。
+
 
