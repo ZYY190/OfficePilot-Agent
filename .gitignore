@@ -1,0 +1,12 @@
+__pycache__/
+*.py[cod]
+.venv/
+data/*.db
+data/*.db-*
+workspace/*
+!workspace/.gitkeep
+*.log
+.pytest_cache/
+.env
+
+build/
